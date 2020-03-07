@@ -41,14 +41,14 @@ def parse_program_args():
         choices=["gcc","clang"],
         default="gcc"
     )
+    parser.add_argument("-f",
+        help="add standard compile flags: -Wall -Wextra -Wpedantic",
+        action="store_true"
+    )
     parser.add_argument("-m",
         help="select the build mode",
         choices=["release","debug"],
         default="release"
-    )
-    parser.add_argument("-s",
-        help="add standard compile flags: -Wall -Wextra -Wpedantic",
-        action="store_true"
     )
     parser.add_argument("-v",
         help="enable verbose CMake output",
@@ -62,20 +62,22 @@ def build_cmake_command(args):
     # set the compiler
     if args.c == "clang":
         compiler = "export CC=/usr/bin/clang;export CXX=/usr/bin/clang++;"
+    if args.c == "clang8":
+        compiler = "export CC=/usr/bin/clang-8;export CXX=/usr/bin/clang++-8;"
     else:
         compiler = "export CC=/usr/bin/gcc;export CXX=/usr/bin/g++;"
+
+    # set the standard flags
+    if args.f:
+        flags = '-DCMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic"'
+    else:
+        flags = ''
 
     # set the build mode
     if args.m == "debug":
         mode = "-DCMAKE_BUILD_TYPE=Debug"
     else:
         mode = "-DCMAKE_BUILD_TYPE=Release"
-
-    # set the standard flags
-    if args.s:
-        flags = '-DCMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic"'
-    else:
-        flags = ''
 
     # set verbose make
     if args.v:
