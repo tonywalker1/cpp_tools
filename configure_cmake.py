@@ -50,6 +50,11 @@ def parse_program_args():
         choices=["release","debug"],
         default="release"
     )
+    parser.add_argument("-s",
+        help="set C++ standard version",
+        choices=["11", "14", "17", "20"],
+        default="17"
+    )
     parser.add_argument("-v",
         help="enable verbose CMake output",
         action="store_true"
@@ -79,6 +84,9 @@ def build_cmake_command(args):
     else:
         mode = "-DCMAKE_BUILD_TYPE=Release"
 
+    # set C++ standard version
+    std_version = "-DCMAKE_CXX_STANDARD=" + args.s
+
     # set verbose make
     if args.v:
         verbose = "-DCMAKE_VERBOSE_MAKEFILE=TRUE"
@@ -94,6 +102,7 @@ def build_cmake_command(args):
             + verbose + " "
             + flags + " "
             + cdb + " "
+            + std_version + " "
             + args.path)
     return command
 
