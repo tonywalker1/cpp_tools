@@ -11,9 +11,9 @@ Useful tools for configuring build environments, clang-format, clang-tidy, etc
 **configure_cmake.py** - Commandlines for CMake can be lengthy. This script
 simplifies running CMake for a few common options.
 
-**install_catch2** - Clone, build, and install the latest version of Catch2.
+**install_catch2.sh** - Clone, build, and install the latest version of Catch2.
 
-**install_date** - Install Howard Hinnant's date/timezone library (accepted for
+**install_date.sh** - Install Howard Hinnant's date/timezone library (accepted for
   C++20 but not implemented yet in GCC/Clang).
 
 # Usage
