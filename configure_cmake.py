@@ -38,7 +38,7 @@ def parse_program_args():
     )
     parser.add_argument("-c",
         help="select the C/C++ compiler",
-        choices=["gcc","clang","clang8"],
+        choices=["gcc","clang"],
         default="gcc"
     )
     parser.add_argument("-f",
@@ -67,8 +67,6 @@ def build_cmake_command(args):
     # set the compiler
     if args.c == "clang":
         compiler = "export CC=/usr/bin/clang;export CXX=/usr/bin/clang++;"
-    if args.c == "clang8":
-        compiler = "export CC=/usr/bin/clang-8;export CXX=/usr/bin/clang++-8;"
     else:
         compiler = "export CC=/usr/bin/gcc;export CXX=/usr/bin/g++;"
 
