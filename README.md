@@ -13,8 +13,8 @@ simplifies running CMake for a few common options.
 
 **install_catch2.sh** - Clone, build, and install the latest version of Catch2.
 
-**install_date.sh** - Install Howard Hinnant's date/timezone library (accepted for
-  C++20 but not implemented yet in GCC/Clang).
+**install_date.sh** - Clone, build, and install Howard Hinnant's date/timezone
+library (accepted for C++20 but not implemented yet in GCC/Clang).
 
 # Usage
 
@@ -25,8 +25,11 @@ See the the code for documentation and examples.
 ```shell
 cd <development_directory>
 git clone https://github.com/tonywalker1/cpp_tools.git
+cd cpp_tools
 sudo make install
 ```
+NOTE: Does not install .clang-format or .clang-tidy. You should copy those into
+your projects manually as needed.
 
 # Helping
 
