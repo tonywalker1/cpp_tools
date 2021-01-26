@@ -22,5 +22,5 @@
 
 .PHONY: install
 install:
-	install -m 755 configure_cmake  /usr/local/bin
-	install -m 755 install_catch2   /usr/local/bin
+	install -m 755 configure_cmake.py  /usr/local/bin
+	install -m 755 install_catch2.sh   /usr/local/bin
