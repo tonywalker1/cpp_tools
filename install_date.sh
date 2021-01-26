@@ -23,14 +23,13 @@
 # SOFTWARE.
 #
 
-REPO="https://github.com/catchorg/Catch2.git"
-BRANCH="v2.x"
-SRC_DIR="/usr/local/src/catch2"
-CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
+REPO="https://github.com/HowardHinnant/date.git"
+SRC_DIR="/usr/local/src/date"
+CMAKE_ARGS="-DUSE_SYSTEM_TZ_DB=ON -DBUILD_SHARED_LIBS=ON -DBUILD_TZ_LIB=ON -DCMAKE_CXX_STANDARD=17 -DCMAKE_BUILD_TYPE=Release"
 MAKE_ARGS="-j"
 
 echo "***********************"
-echo "*** Building Catch2 ***"
+echo "*** Building Date ***"
 echo "***********************"
 
 if [ ! -d "$SRC_DIR" ]
@@ -44,7 +43,7 @@ pushd "$SRC_DIR"
 if [ ! -d "$SRC_DIR/.git" ]
 then
     echo "* Cloning the repo"
-    git clone -b "$BRANCH" "$REPO" "$SRC_DIR"
+    git clone "$REPO" "$SRC_DIR"
 else
     echo "* Pulling changes"
     git pull --ff-only
@@ -65,12 +64,9 @@ make $MAKE_ARGS
 
 
 echo "* Removing previous versions"
-rm -rf /usr/local/lib/cmake/Catch2
-rm -rf /usr/local/lib/libCatch2*
-rm -rf /usr/local/include/catch2
-rm -rf /usr/local/share/doc/Catch2
-rm -rf /usr/local/share/Catch2
-rm -rf /usr/local/share/pkgconfig/catch2.pc
+rm -rf /usr/local/lib/cmake/date
+rm -rf /usr/local/lib/libdate*
+rm -rf /usr/local/include/date
 
 echo "* Installing"
 make install

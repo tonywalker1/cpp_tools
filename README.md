@@ -8,9 +8,13 @@ Useful tools for configuring build environments, clang-format, clang-tidy, etc
 
 **.clang-tidy** - My favorite clang-tidy configuration.
 
-**configure_cmake.py** - Commandlines for CMake can be lengthy. This script simplifies running CMake for a few common options.
+**configure_cmake.py** - Commandlines for CMake can be lengthy. This script
+simplifies running CMake for a few common options.
 
 **install_catch2** - Clone, build, and install the latest version of Catch2.
+
+**install_date** - Install Howard Hinnant's date/timezone library (accepted for
+  C++20 but not implemented yet in GCC/Clang).
 
 # Usage
 
@@ -21,7 +25,7 @@ See the the code for documentation and examples.
 ```shell
 cd <development_directory>
 git clone https://github.com/tonywalker1/cpp_tools.git
-make install
+sudo make install
 ```
 
 # Helping
