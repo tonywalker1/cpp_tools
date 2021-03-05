@@ -11,6 +11,8 @@ Useful tools for configuring build environments, clang-format, clang-tidy, etc
 **configure_cmake.py** - Commandlines for CMake can be lengthy. This script
 simplifies running CMake for a few common options.
 
+**install_atom** - Download and install the Atom text editor (deb package).
+
 **install_catch2.sh** - Clone, build, and install the latest version of Catch2.
 
 **install_date.sh** - Clone, build, and install Howard Hinnant's date/timezone
