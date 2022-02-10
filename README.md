@@ -2,6 +2,8 @@
 
 Useful tools for configuring build environments, clang-format, clang-tidy, etc
 
+NOTE: I have shifted my development to Rust. I will leave this project here, but unmaintained.
+
 # Contents
 
 **.clang-format** - My favorite clang-format configuration.
